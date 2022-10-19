@@ -37348,54 +37348,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/ongkir.js":
-/*!********************************!*\
-  !*** ./resources/js/ongkir.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$('select[name="province_origin"]').on("change", function () {
-  var provinceId = $(this).val();
-  if (provinceId) {
-    jQuery.ajax({
-      url: "/api/province/" + provinceId + "/cities",
-      type: "GET",
-      dataType: "json",
-      success: function success(data) {
-        $('select[name="city_origin"]').empty();
-        $.each(data, function (key, value) {
-          $('select[name="city_origin"]').append("<option value=\"".concat(key, "\"> ").concat(value, " </option>"));
-        });
-      }
-    });
-  } else {
-    $('select[name="city_origin"]').empty();
-  }
-});
-$("#city_destination").select2({
-  ajax: {
-    url: "/api/cities",
-    type: "POST",
-    dataType: "json",
-    delay: 150,
-    data: function data(params) {
-      return {
-        _token: $('meta[name="csrf-token"]').attr("content"),
-        search: $.trim(params.term)
-      };
-    },
-    processResults: function processResults(response) {
-      return {
-        results: response
-      };
-    },
-    cache: true
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37408,15 +37360,13 @@ $("#city_destination").select2({
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/ongkir.js ./node_modules/select2/dist/js/select2.min.js ./resources/sass/app.scss ***!
-  \************************************************************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\laragon\www\cekongkir\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\laragon\www\cekongkir\resources\js\ongkir.js */"./resources/js/ongkir.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'D:\\laragon\\www\\cekongkir\\node_modules\\select2\\dist\\js\\select2.min.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 module.exports = __webpack_require__(/*! D:\laragon\www\cekongkir\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
