@@ -6,6 +6,7 @@ use App\City;
 use App\Courier;
 use App\Province;
 use Illuminate\Http\Request;
+use Kavist\RajaOngkir\Facades\RajaOngkir;
 
 class HomeController extends Controller
 {
